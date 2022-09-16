@@ -1,36 +1,29 @@
 <template>
-  <h1
-    :style="
-      [fontstyle,
-      backgroundColor]
-      "
-      @click="changeStyle">
-      Hello?! 
+  <button @click="handler">Click me!</button>
+  <h1 v-if="isShow">
+    Hello?!
   </h1>
-
+  <h1 v-else-if="count > 3">
+    Count > 3
+  </h1>
+  <h1 v-else>
+    Good~
+  </h1> 
 </template>
 
 <script>
 export default {
   data () {
     return {
-      fontstyle : {
-        color : 'orange',
-        fontSize: '30px'
-      },
-      backgroundColor : {
-        'background-color' : 'black'
-      }
+      isShow : true,
+      count : 0
     }
   },
-  methods : {
-    changeStyle() {
-      this.fontstyle.color = 'red',
-      this.fontstyle.fontSize = '50px',
-      this.backgroundColor.backgroundColor = 'orange'
+  methods: {
+    handler () {
+      this.isShow = !this.isShow,
+      this.count += 1
     }
   }
-
-  
 }
 </script>
