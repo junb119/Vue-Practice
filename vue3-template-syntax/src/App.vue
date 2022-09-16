@@ -1,41 +1,32 @@
 <template>
-  <h1 @click="changeMessage">{{msg}}</h1>
-  <h1>{{reversedMessage}}</h1>
+<!-- idActive가 true이면 class = active -->
+  <h1 
+  :class = "{active: isActive}" 
+  @click="activate">
+  Hello?({{isActive}})
+  </h1>
 
 </template>
 
 <script>
-// import Fruits from './components/Fruits'
 export default {
   data () {
     return {
-      msg : 'Hello?'
-    }
+      isActive : false
+      }
   },
-  computed : {
-    reversedMessage() {
-      return this.msg.split('').reverse().join('')
-    }
-  },
-
-  watch : { // 데이터들의 변경사항을 감시하는 옵션
-    msg(newValue) {
-      console.log('msg :', newValue)
-    },
-
-    reversedMessage(newValue) {
-      console.log('reversedMessage :', newValue)
-    }
-  },
-
+  
   methods : {
-    changeMessage() {
-      this.msg = 'Good!'
+    activate() {
+      this.isActive = true
     }
   }  
 }
 </script>
 
 <style scoped>
-
+  .active {
+    color: red;
+    font-weight: bold ;
+  }
 </style>
