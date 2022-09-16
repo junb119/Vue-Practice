@@ -1,27 +1,21 @@
 <template>
-  <!-- Remove & use example component! -->
-  <HelloWorld 
-    :msg="message" 
-    @click="handler" />
-  <HelloWorld msg="Good" />
+  <h1 v-once
+  @click="add">
+    {{msg}}
+    </h1>
+    <h1 v-html="msg"></h1>
 </template>
 
 <script>
-import HelloWorld from '~/components/HelloWorld'
-
 export default {
-  components: {
-    HelloWorld
-  },
   data() {
     return {
-      message: 'Hello Vue!'
+      msg : '<div style="color: red;">Hello!!</div>'
     }
   },
-  methods: {
-    handler() {
-      console.log(this.message)
-      this.message += '!'
+  methods : {
+    add() {
+    this.msg += '!'
     }
   }
 }
