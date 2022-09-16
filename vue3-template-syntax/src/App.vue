@@ -1,29 +1,22 @@
 <template>
   <div
   class="parent"
-  @click.capture="handlerA">
+  @click.self="handlerA">
     <div
-    class="child"
-    @click="handlerB">
-      <div
-      class="child2"
-      @click.stop="handlerC">
-
-      </div>
+    class="child">
     </div>
   </div>
 
-  <!-- 이벤트 버블링 : 자식 요소 클릭시 자식요소 핸들러, 부모요소 핸들러 순으로 실행됨  -->
-  <!-- stop : 이벤트 버블링 방지 (= event.stopPropagation() )-->
-
-  <!-- 이벤트 캡쳐링 : 자식 요소 클릭시 부요요소 -> 자식요소 순으로 실행됨-->
+<!-- self : 가려지지 않은 자기 영역만 핸들링 (= ( event.target == event.currenTarget )  )-->
 
 </template>
 
 <script>
 export default {
   methods: {
-    handlerA () {
+    handlerA (event) {
+      console.log('Target: ', event.target)
+      console.log('currenTarget :', event.currentTarget)
       console.log('A')
     },
     handlerB () {
