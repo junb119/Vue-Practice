@@ -1,34 +1,25 @@
 <template>
   <div
   class="parent"
-  @click.self="handlerA">
+  @wheel.passive="handlerA">
     <div
     class="child">
     </div>
   </div>
 
-<!-- self : 가려지지 않은 자기 영역만 핸들링 (= ( event.target == event.currenTarget )  )-->
-
+<!-- @wheel  : 휠을 움직일 때마다 핸들링
+passive : 화면과 로직을 따로 처리하여 화면을 최대한 부드럽게 전환하고 로직은 독립적으로 처리
+-->
 </template>
 
 <script>
 export default {
   methods: {
     handlerA (event) {
-      console.log('Target: ', event.target)
-      console.log('currenTarget :', event.currentTarget)
-      console.log('A')
-    },
-    handlerB () {
-      // event.stopPropagation() 
-      // 이벤트 전파방지 = 이벤트 버블링 방지
-
-      console.log('B')
-    },
-    handlerC () {
-      console.log('c')
+      for (let i = 0; i<10000; i += 1) {
+        console.log(event)
+      }
     }
-
   }
 }
 </script>
@@ -40,19 +31,14 @@ export default {
     background-color: royalblue;
     margin: 10px;
     padding: 10px;
+    overflow: auto;
     .child {
       width: 100px;
-      height: 100px;
-      /* margin:20px;
-      padding:20px; */
+      height: 2000px;
       background-color: orange;
-      .child2 {
-        width: 50px;
-        height: 50px;
-        background-color: #fff;
+
       }
     }
-  }
 
 </style>
 
