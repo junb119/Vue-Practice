@@ -1,9 +1,9 @@
 <template>
   <h1
-    :style="{
-      color,
-      fontSize
-      }"
+    :style="
+      [fontstyle,
+      backgroundColor]
+      "
       @click="changeStyle">
       Hello?! 
   </h1>
@@ -14,24 +14,23 @@
 export default {
   data () {
     return {
-      color : 'orange',
-      fontSize: '30px'
+      fontstyle : {
+        color : 'orange',
+        fontSize: '30px'
+      },
+      backgroundColor : {
+        'background-color' : 'black'
+      }
     }
   },
   methods : {
     changeStyle() {
-      this.color = 'red',
-      this.fontSize = '50px'
+      this.fontstyle.color = 'red',
+      this.fontstyle.fontSize = '50px',
+      this.backgroundColor.backgroundColor = 'orange'
     }
   }
 
   
 }
 </script>
-
-<style scoped>
-  .active {
-    color: red;
-    font-weight: bold ;
-  }
-</style>
