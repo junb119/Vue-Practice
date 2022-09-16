@@ -1,5 +1,6 @@
 <template>
-  <h1 v-bind:class="msg"> 
+  <h1 :[attr]="'active'"       
+  @[event]='add'>    <!-- v-on, 동적인자전달 -->
     {{msg}}
     </h1>
 </template>
@@ -8,7 +9,10 @@
 export default {
   data() {
     return {
-      msg : 'active' 
+      msg : 'active' ,
+      
+      attr : 'class',
+      event: 'click',
     }
   },
   methods : {
