@@ -1,9 +1,11 @@
 <template>
-<!-- idActive가 true이면 class = active -->
-  <h1 
-  :class = "{active: isActive}" 
-  @click="activate">
-  Hello?({{isActive}})
+  <h1
+    :style="{
+      color,
+      fontSize
+      }"
+      @click="changeStyle">
+      Hello?! 
   </h1>
 
 </template>
@@ -12,15 +14,18 @@
 export default {
   data () {
     return {
-      isActive : false
-      }
-  },
-  
-  methods : {
-    activate() {
-      this.isActive = true
+      color : 'orange',
+      fontSize: '30px'
     }
-  }  
+  },
+  methods : {
+    changeStyle() {
+      this.color = 'red',
+      this.fontSize = '50px'
+    }
+  }
+
+  
 }
 </script>
 
