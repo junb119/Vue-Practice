@@ -1,19 +1,19 @@
 <template>
-  <button @click="handler('hi', $event)"> {{msg}} </button>
-  <!-- 인수가 따로 있을 때 이벤트 객체를 받으려면 인수로 $event -->
+  <a href="https://naver.com"
+  target="_brank"
+  @click.prevent.once="handler">
+  <!--once: handler를 한번만 실행시킴
+      prevent: html의 기본동작을 막음 (= event.preventDefault() ) -->
+  NAVER
+  </a>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-    msg : 'Click'
-  }},
   methods: {
-    handler (string, event) {
-      console.log(string),
-      console.log(event),
-      this.msg = 'Hello~!'
+    handler (event) {
+      // event.preventDefault()
+      console.log('ABC')
     }
   }
 }
