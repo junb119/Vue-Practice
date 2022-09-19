@@ -1,24 +1,24 @@
 <template>
-  <!-- 클래스 바인딩 -->
   <div 
-    :class=" { large : large} "
-    :style="{backgroundColor:color}"
-    class="btn">
+    class='btn'>
     <slot></slot>
   </div>
+  <!-- 상속받을 속성을 지정(각각 지정 가능) -->
+  <h1 
+    :class="$attrs.class" 
+    :style="$attrs.style">
+  </h1>
+  <!-- 상속받을 속성을 모두 한꺼번에 적용하고싶다면 v-bind 이용 -->
+  <h2 v-bind="$attrs">
+  </h2>
+
 </template>
 
 <script>
 export default {
-  props: {
-    color: {
-      type: String,
-      default : 'gray'
-    },
-    large : {
-      type:Boolean,
-      default: false
-    }
+  inheritAttrs: false, // inheritAttrs : 속성 상속 옵션 지정
+  created() {
+    console.log(this.$attrs) // 상속받는 속성을 저장
   }
 }
 </script>

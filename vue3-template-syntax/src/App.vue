@@ -1,18 +1,12 @@
 <template>
-<!-- propos 부모 자식간 데이터 통신 -->  
-  <MyBtn>Banana</MyBtn>
+<!--컴포넌트 - 속성 : 최상위루트가 하날-->
   <MyBtn 
-    :color="color">
-    <span style='color:red;'>Banana</span></MyBtn>
-  <MyBtn :color="color">
-    Apple
+    class="heropy" 
+    style='color:red;'
+    title='Hello world!'
+    id='1231231'>
+    Banana
   </MyBtn>
-  <MyBtn 
-    large 
-    color='royalblue'>
-    Cherry 
-  </MyBtn>
-    <MyBtn :color="'green'"> <span style='background-color:black;'> Blueberry </span></MyBtn>
 
 </template>
 
@@ -23,11 +17,6 @@ export default {
   components : {
     MyBtn
   },
-  data() {
-    return {
-      color: '#000'
-    }
-  }
 
 }
 </script>
