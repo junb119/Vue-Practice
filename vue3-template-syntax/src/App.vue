@@ -1,10 +1,6 @@
 <template>
-<!--컴포넌트 - 속성 : 최상위루트가 하날-->
-  <MyBtn 
-    class="heropy" 
-    style='color:red;'
-    title='Hello world!'
-    id='1231231'>
+<!-- emit : 속성이 아닌 이벤트를 상속받음 -->
+  <MyBtn @heropy="log">   <!--1. 이벤트 지정. 임의로 지정해도 됨   -->
     Banana
   </MyBtn>
 
@@ -17,6 +13,12 @@ export default {
   components : {
     MyBtn
   },
+  methods : {
+    log(event) {
+      console.log('Click')
+      console.log(event)
+    }
+  }
 
 }
 </script>

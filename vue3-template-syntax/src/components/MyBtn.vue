@@ -3,23 +3,18 @@
     class='btn'>
     <slot></slot>
   </div>
-  <!-- 상속받을 속성을 지정(각각 지정 가능) -->
-  <h1 
-    :class="$attrs.class" 
-    :style="$attrs.style">
+  <h1 @dblclick="$emit('heropy',$event)">
+    <!-- 3. 트리거가 될 이벤트에 상속받을 emit 지정. -->
+    ABC
   </h1>
-  <!-- 상속받을 속성을 모두 한꺼번에 적용하고싶다면 v-bind 이용 -->
-  <h2 v-bind="$attrs">
-  </h2>
 
 </template>
 
 <script>
 export default {
-  inheritAttrs: false, // inheritAttrs : 속성 상속 옵션 지정
-  created() {
-    console.log(this.$attrs) // 상속받는 속성을 저장
-  }
+  emits : [ // 2. emits 에 사용할 이벤트 목록 작성
+    'heropy'
+  ]
 }
 </script>
 
