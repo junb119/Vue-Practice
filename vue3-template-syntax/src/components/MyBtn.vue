@@ -1,8 +1,10 @@
 <template>
   <div 
     class='btn'>
-    <!-- Fallback 컨텐츠: 만약 App.vue에 내용이 없으면 default값으로 'Apple' 출력 -->
-    <slot>Apple</slot> 
+    <!-- 2. name으로 지정한 순서를 지킴 -->
+    <slot name="icon"></slot>
+    <slot name="text"></slot>
+
   </div> 
   
 </template>
