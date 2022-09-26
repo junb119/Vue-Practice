@@ -4,17 +4,31 @@
     <slot></slot>
   </div>
   <h1 @dblclick="$emit('heropy',$event)">
-    <!-- 3. 트리거가 될 이벤트에 상속받을 emit 지정. -->
     ABC
   </h1>
 
+  <input 
+  type="text" 
+  v-model="msg" /> <!--1. 양방향 데이터 바인딩을 통해 서로 실시간으로 데이터 갱신 -->
 </template>
 
 <script>
 export default {
-  emits : [ // 2. emits 에 사용할 이벤트 목록 작성
-    'heropy'
-  ]
+  emits : [ 
+    'heropy',
+    'changeMsg'
+  ],
+  data() {
+    return{
+      msg:''
+    }
+  },
+  // 2. v-model로 인해 data에 실시간 갱신되는 msg 감시 -> (App.vue)
+  watch : {
+    msg() {
+      this.$emit('changeMsg', this.msg)
+    }
+  }
 }
 </script>
 

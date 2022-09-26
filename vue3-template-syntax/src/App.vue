@@ -1,6 +1,6 @@
 <template>
-<!-- emit : 속성이 아닌 이벤트를 상속받음 -->
-  <MyBtn @heropy="log">   <!--1. 이벤트 지정. 임의로 지정해도 됨   -->
+  <MyBtn @heropy="log" @change-msg='logMsg'>  
+    <!--3. emit을 통해 받은 changeMsg의 logMsg 메소드 실행(= 실시간 변경되는 내용을 콘솔에 출력) -->
     Banana
   </MyBtn>
 
@@ -17,7 +17,11 @@ export default {
     log(event) {
       console.log('Click')
       console.log(event)
+    },
+    logMsg(msg){
+      console.log(msg)
     }
+
   }
 
 }
