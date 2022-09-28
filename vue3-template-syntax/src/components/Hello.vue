@@ -1,6 +1,5 @@
 <template>
-  <Child />
-  
+  <h1></h1>  
 </template>
 <script>
 import Child from '~/components/Child'
