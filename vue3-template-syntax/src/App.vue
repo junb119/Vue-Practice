@@ -1,21 +1,31 @@
 <template>
-  <!-- slot 응용 - 이름을 갖는 슬론(=v-slot, #) -->
-  <MyBtn >
-    <!-- 1. v-slot에 지정한 이름의 순서대로 보장해줌. v-slot = # -->
-    <template v-slot:text><span>Banana</span></template>
-    <template v-slot:icon><span>(B) </span></template>
+  <!-- provide & inject : 
+    1. 매개체를 거치지 않고 후손 컴포넌트에 데이터를 전달할 수 있음
+    2. props와 달리 반응성 제공 X. 따로 지정해줘야함. -->
 
-  </MyBtn>
+  <h1>App: {{message}}</h1>
+  <Parent />
 
 </template>
 
 <script>
-import MyBtn from '~/components/MyBtn'
+import Parent from '~/components/Parent'
 
 export default {
   components : {
-    MyBtn
+    Parent
   },
+  data () {
+    return {
+      message : 'Hello world'
+    }
+  },
+  // 1. provide를 사용해 데이터를 내보내고 (=>Child.vue)
+  provide(){ 
+    return {
+      msg: this.message
+    }
+  }
 
 }
 </script>
