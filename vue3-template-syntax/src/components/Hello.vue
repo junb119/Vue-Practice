@@ -1,12 +1,10 @@
 <template>
-  <h1></h1>  
+  <h1>Hello~</h1>
+  <h1 ref='good'>Good?</h1> 
 </template>
 <script>
-import Child from '~/components/Child'
 
 export default {
-  components : {
-    Child
-  },
+
 }
 </script>
