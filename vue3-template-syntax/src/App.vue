@@ -1,26 +1,25 @@
 <template>
-  <Hello ref='hello'/>
+  <!-- 컴포지션 api 구성(반응형 데이터) -->
+  <div @click ="increase">
+    {{count}}
+  </div>
 </template>
 
 <script>
-import Hello from '~/components/Hello'
-
+import {ref} from 'vue'
 export default {
-  components :{
-    Hello
-  },
-  created() {
-    console.log(this.$refs.hello)
-  // created에서는 ref사용 불가
-  },
-  mounted() {
-    // Hello.vue 의 요소 출력(최상위 요소가 하나일 때 가능)
-    // console.log(this.$refs.hello.$el)
+  setup() {
+    // 데이터 자체로는 반응성을 가질 수 없으므로 ref를 이용해 반응성 객체 반환
+    let count = ref('a')
+    function increase() {
+      count.value +='bcd' // 객체로 반환되므로 데이터는 .value를 통해 접근 가능
+    }
 
-    // 최상위 루트에 2개 이상의 요소가 있다면
-    // 출력하려는 ref를 지정해서 사용 가능(Hello.vue => h1 ref="good")
-    console.log(this.$refs.hello.$refs.good)
-
-}
+    return {
+      count,
+      increase
+    }
+  }
+  
 }
 </script>
